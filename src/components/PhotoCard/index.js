@@ -2,7 +2,8 @@ import React from 'react'
 
 import { useLocalStorage } from '../../hooks/useLocalStorage'
 import { useNearScreen } from '../../hooks/useNearScreen'
-import FavButton from '../FavButton'
+import { FavButton } from '../FavButton'
+import { ToggleLikeMutation } from '../../container/ToggleLikeMutation'
 import {
   ImgWrapper,
   Img,
@@ -16,8 +17,6 @@ export function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
   const [show, element] = useNearScreen()
   const [liked, setLiked] = useLocalStorage(key, false)
 
-  const handleFavClick = () => setLiked(!liked)
-
   return (
     <Article ref={element}>
       {
@@ -28,7 +27,18 @@ export function PhotoCard ({ id, likes = 0, src = DEFAULT_IMAGE }) {
               <Img src={src} />
             </ImgWrapper>
           </a>
-          <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
+          <ToggleLikeMutation>
+            {
+              (toggleLike) => {
+                const handleFavClick = () => {
+                  !liked && toggleLike({ variables: { input: { id } } })
+                  setLiked(!liked)
+                }
+
+                return <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
+              }
+            }
+          </ToggleLikeMutation>
         </>
       }
     </Article>

@@ -1,11 +1,12 @@
 import React from 'react'
-import { FavsWithQuery } from '../container/GetFavorites'
 
-export function Favs () {
+import { FavsWithQuery } from '../container/GetFavorites'
+import { Layout } from '../components/Layout'
+
+export default () => {
   return (
-    <>
-      <h1>Favs</h1>
+    <Layout title='tus favoritos' subtitle='aqui encontraras tu favoritos'>
       <FavsWithQuery />
-    </>
+    </Layout>
   )
 }

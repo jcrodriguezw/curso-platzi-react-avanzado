@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {
   Link,
   Grid,
@@ -15,5 +16,14 @@ export function ListOfFavs ({ favs = [] }) {
           </Link>)
       }
     </Grid>
+  )
+}
+
+ListOfFavs.propTypes = {
+  favs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      src: PropTypes.bool.isRequired
+    })
   )
 }

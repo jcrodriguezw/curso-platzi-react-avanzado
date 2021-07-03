@@ -1,25 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="src/assets/icon.png">
-  <title>Petgram</title>
-<script defer src="/app.bundle.js"></script><meta name="theme-color" content="#b1a" /><link rel="manifest" href="/manifest.8f918225aaff33c01b2045c13b318c46.json" /></head>
-<body>
-  <div id='app'></div>
-
-  <noscript>
-    <h3>Esta app necesita javascript para funcionar</h3>
-  </noscript>
-  <script>
-    if('serviceWorker' in navigator) {
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="apple-touch-icon" sizes="180x180" href="../src/assets/icon.png"><title>Petgram</title><script defer="defer" src="/app.bundle.js"></script><meta name="theme-color" content="#b1a" /><link rel="manifest" href="/manifest.8f918225aaff33c01b2045c13b318c46.json" /></head><body><div id="app"></div><noscript><h3>Esta app necesita javascript para funcionar</h3></noscript><script>if('serviceWorker' in navigator) {
       window.addEventListener('load', function() {
         navigator.serviceWorker.register('/service-worker.js')
           .then(registration => console.log('registrado')) 
       })
-    }
-  </script>
-</body>
-</html>
+    }</script></body></html>
